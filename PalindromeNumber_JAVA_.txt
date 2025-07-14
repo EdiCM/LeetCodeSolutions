@@ -1,0 +1,38 @@
+// https://leetcode.com/problems/palindrome-number/description/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+
+        String stringToNumber = Integer.toString(x);
+        if (x < -9) {
+            return false;
+        }
+        else {
+            int i = 0;
+            int j = stringToNumber.length() - 1;
+            if (stringToNumber.length() % 2 == 0) {
+                while (i < j) {
+                    if (stringToNumber.charAt(i) != stringToNumber.charAt(j)) {
+                        return false;
+                    }
+                    else {
+                        i++;
+                        j--;
+                    }
+                }
+            }
+            else {
+                while (i <= j) {
+                    if (stringToNumber.charAt(i) != stringToNumber.charAt(j)) {
+                        return false;
+                    }
+                    else {
+                        i++;
+                        j--;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
