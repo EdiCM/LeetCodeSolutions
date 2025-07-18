@@ -1,0 +1,49 @@
+// https://leetcode.com/problems/remove-element/description/
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+
+        int k = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            if (nums[i] != val) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+
+        return k;
+
+        /*
+        nums es un vector de enteros
+        me dan un entero val, debo eliminar todas las 
+        ocurrencias de val en el vector in-place.
+
+        empujar cualquier numero que no sea val al frente,
+        y lo que quede al final no importa
+        retorna k (number of elements in nums that are not val)
+
+        int j = 0; index for switching numbers
+
+         for (trasverse nums with int i from 0 to size -1 ) { 
+         index for finding numbers that dont equal to val
+
+        is i == val?
+        if its not then change nums[j] = nums[i] and j++;
+        if it is then keep moving
+
+         }
+        return result
+
+        nums = 2 2 2 3   val = 3
+        j = 2    i = 3
+        */
+
+
+
+        
+
+    }
+};
