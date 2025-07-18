@@ -1,0 +1,42 @@
+// https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+
+        string window = "";
+        int left = 0;
+        int right = needle.size() - 1;
+
+        while (right < haystack.size()) {
+            window = haystack.substr(left, (right - left + 1));
+            if (window == needle) {
+                return left;
+            }
+            else {
+                left++;
+                right++;
+            }
+        }
+
+        return -1;
+
+       /*
+       2 strings
+       lowercase english characters
+       return index of first ocurrence 
+       or -1 if needle doesnt exist in haystack
+
+       --------------
+       int left starts at 0 and right size of needle - 1
+       sadbutsad
+       [ ]
+       window is from 0 to 2
+       trasverse the characters in haystack
+       if that word is the same as needle then return left
+       if not
+       move: right++, left ++, change my string window
+        adding the right and changing the left
+       */ 
+    }
+};
