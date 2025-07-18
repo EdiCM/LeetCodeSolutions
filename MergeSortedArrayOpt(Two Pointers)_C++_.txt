@@ -1,0 +1,36 @@
+// https://leetcode.com/problems/merge-sorted-array/description/
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+
+
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            }
+            else {
+                nums1[k--] = nums2[j--];
+                
+            }
+        }
+
+        // trasverse nums1 with i and j is a helping index 
+        // trasversing nums2
+        // if n is zero then break
+        // duplicates, increasing
+        // merge nums1 and nums2 in nums2
+        // not return anything, just move the numbers
+
+        // if nums1[i] == 0 and j < nums2.size swap them and increment j
+        // is nums1[i] less or equal to nums2[j] = 
+        // leave it
+        // if not, swap them
+        // 1 2 2 3 5 6     0 0 0
+        //           i         j
+    }
+};
