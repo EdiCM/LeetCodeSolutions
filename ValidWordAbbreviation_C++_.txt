@@ -1,0 +1,39 @@
+// https://leetcode.com/problems/valid-word-abbreviation/description/
+
+class Solution {
+public:
+    bool validWordAbbreviation(string word, string abbr) {
+        
+    int i = 0;
+    int j = 0;
+    int x = 0;
+
+    while (i < word.size() && j < abbr.size()) {
+        x = 0; // reinicio mi numero, porque puede haber mas de un numero en la abreviacion y asi evito que se concatenen cada vez que aparezca uno nuevo
+        
+        if(isdigit(abbr[j])) { // lo que hay es un numero? entonces saco cuanto es
+
+            if (abbr[j] == '0') return false; // tiene leading zeros
+            else {
+                while(isdigit(abbr[j]) && j < abbr.size()) { // mientras que sigan apareciendo digitos...
+                    x = (x*10) + abbr[j] - '0'; // le resto el valor ascci del 0 para que me de el numero entero, y cada vez que aparezca un nuevo digito multiplico lo anterior por 10 para que se vayan haciendo las decenas... otra forma de hacerlo es convirtiendo con stoi al numero en forma de string y asignarle eso a x
+                    j++;
+                }
+
+                i += x;
+            }
+        }
+        else {
+            if(word[i] != abbr[j]) {
+                return false;
+            } 
+            else {
+                i++;
+                j++;
+            }
+        }
+    }
+
+    return (i == word.size() && j == abbr.size());
+    }
+};
