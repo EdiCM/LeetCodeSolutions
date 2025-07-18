@@ -1,0 +1,26 @@
+//https://leetcode.com/problems/move-zeroes/description/
+
+class Solution {
+public:
+
+    int findNext(int i, vector<int>& nums) {
+        for (int j = i; j < nums.size(); j++) {
+            if (nums[j] != 0) {
+
+                return j;
+            }
+        }
+        return i;
+    }
+    void moveZeroes(vector<int>& nums) {
+
+        int j = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 0) {
+                j = findNext(i, nums);
+                swap(nums[i], nums[j]);
+            }
+        }
+    }
+};
