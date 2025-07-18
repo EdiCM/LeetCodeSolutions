@@ -1,0 +1,18 @@
+// https://leetcode.com/problems/valid-palindrome/description/
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string palin = "";
+        string palinReverse = "";
+        
+        for (char c: s) {
+            if ((isalpha(c) || isdigit(c)) && !ispunct(c) && !isblank(c)) {
+                palin+=tolower(c);
+            }
+        }
+        palinReverse = palin;
+        reverse(palinReverse.begin(), palinReverse.end());
+        return palin == palinReverse;
+    }
+};
