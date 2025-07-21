@@ -1,0 +1,35 @@
+// https://leetcode.com/problems/intersection-of-two-linked-lists/description/
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        /*
+        trasversar y usar un mapa para guardar direccion, value
+        voy a hacer un count para ver si ya tenia esa direccion y si si entonces retornare ese nodo y si no lo metere junto con su value, seguire trasversando hasta que alguna llegue a null  
+        */
+        ListNode* tempA = headA;
+        ListNode* tempB = headB;
+        unordered_set<ListNode*> visited;
+
+        while (tempA) {
+            visited.insert(tempA);
+            tempA = tempA -> next;
+        }
+
+        while(tempB) {
+            if (visited.count(tempB)) {
+                return tempB;
+            }
+            tempB = tempB -> next;
+        }
+        return nullptr;
+    }
+};
